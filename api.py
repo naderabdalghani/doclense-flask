@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, send_from_directory
+from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -8,7 +8,7 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>Testing Prototype</h1>"
+    return render_template('upload.html')
 
 @app.route('/favicon.ico')
 def fav():
