@@ -7,7 +7,7 @@
   </a>
 
   <p align="center">
-    An app for extracting text0 from camera-captured photos into .docx files
+    An app for extracting text from camera-captured photos into .docx files
   </p>
 </p>
 
@@ -22,7 +22,7 @@
   * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
-* [Contact](#contact)
+* [Contributors](#contributors)
 * [Acknowledgements](#acknowledgements)
 
 <!-- ABOUT THE PROJECT -->
@@ -46,16 +46,16 @@
 ### Installation
 
 1. Create a virtual environment
-  	`$ cd <project-directory>`
-	On Unix-based OS's:
+	`cd <project-directory>`
+	- On Unix-based OS's:
 	`$ python3 -m venv venv`
-	On Windows:
-	$ py -3 -m venv venv
+	- On Windows:
+	`$ py -3 -m venv venv`
 
 2. Activate the environment
-	On Unix-based OS's:
+	- On Unix-based OS's:
 	`$ . venv/bin/activate`
-	On Windows:
+	- On Windows:
 	`> venv\Scripts\activate`
 
 3. Install Flask
@@ -78,7 +78,7 @@ Simply click on the 'Upload' button and select a photo that contains printed tex
 * Developing a mobile version of the app
 * Create audio files using the text extracted. This might be handy for visually impaired people.
 
-<!-- CONTACT -->
+<!-- CONTRIBUTORS -->
 
 ## Contributors
 
