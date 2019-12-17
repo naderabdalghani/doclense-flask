@@ -20,6 +20,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Running](#running)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributors](#contributors)
@@ -50,7 +51,7 @@
 	- On Unix-based OS's:
 	`$ python3 -m venv venv`
 	- On Windows:
-	`$ py -3 -m venv venv`
+	`> py -3 -m venv venv`
 
 2. Activate the environment
 	- On Unix-based OS's:
@@ -59,8 +60,17 @@
 	`> venv\Scripts\activate`
 
 3. Install Flask
-	`$ pip install Flask`
+	`pip install Flask`
+	
+### Running
 
+* Make sure you are in the project directory
+	`cd <project-directory>`
+	- On Unix-based OS's:
+	`$ python api.py`
+	- On Windows:
+	`> py -3 api.py`
+	
 <!-- USAGE EXAMPLES -->
 
 ## Usage
