@@ -5,7 +5,7 @@ from flask import (Flask, render_template, request, send_file,
                    send_from_directory)
 from werkzeug.utils import secure_filename
 
-from functions.text_extraction import extract_text
+from functions.main import main
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 UPLOAD_FOLDER = 'uploads'
@@ -40,8 +40,9 @@ def upload_file():
                     time_string = now.strftime("%d%m%Y%H%M%S%F")
                     filename = time_string + secure_filename(file.filename)
                     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                    extract_text(filename)
-                    return send_file(os.path.splitext(filename)[0] + '.docx')
+                    main(filename)
+                    # return send_file(os.path.splitext(filename)[0] + '.docx')
+                    return
 
 
 if __name__ == "__main__":
