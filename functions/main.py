@@ -8,6 +8,7 @@ from skimage.color import rgb2gray
 from functions.text_separation import text_separation
 import matplotlib.pyplot as plt
 import numpy as np
+from functions.thresholding import binarize
 
 
 def show_images(images, titles=None):
@@ -31,6 +32,7 @@ def main(img_filename):
     img = io.imread(img_file_path)
     img = rgb2gray(img) * 255
     img = text_separation(img)
+    img = binarize(img, mode=2)
     show_images([img])
     # img_new_file = Image.fromarray(img, 'F')
     # img_new_file = img_new_file.convert('L')
