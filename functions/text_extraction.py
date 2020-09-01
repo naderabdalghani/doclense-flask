@@ -7,13 +7,13 @@ from PIL import Image
 from skimage.color import rgb2gray
 
 
-def extractText(imgFileName):
-    # imgFilePath = os.path.join(os.path.dirname(__file__), '../uploads/' + imgFileName)
-    # img = io.imread(imgFilePath)
-    # img = rgb2gray(img) * 255
-    # imgNewFile = Image.fromarray(img)
-    # imgNewFile = imgNewFile.convert("L")
-    # imgNewFile.save("your_file.jpeg")
+def extract_text(img_filename):
+    img_file_path = os.path.join(os.path.dirname(__file__), '../uploads/' + img_filename)
+    img = io.imread(img_file_path)
+    img = rgb2gray(img) * 255
+    img_new_file = Image.fromarray(img)
+    img_new_file = img_new_file.convert("L")
+    img_new_file.save("your_file.jpeg")
 
     document = Document()
 
@@ -34,7 +34,7 @@ def extractText(imgFileName):
         'first item in ordered list', style='List Number'
     )
 
-    # document.add_picture('your_file.jpeg', width=Inches(1.25))
+    document.add_picture('your_file.jpeg', width=Inches(1.25))
 
     records = (
         (3, '101', 'Spam'),
@@ -47,14 +47,14 @@ def extractText(imgFileName):
     hdr_cells[0].text = 'Qty'
     hdr_cells[1].text = 'Id'
     hdr_cells[2].text = 'Desc'
-    for qty, id, desc in records:
+    for qty, _id, desc in records:
         row_cells = table.add_row().cells
         row_cells[0].text = str(qty)
-        row_cells[1].text = id
+        row_cells[1].text = _id
         row_cells[2].text = desc
 
     document.add_page_break()
 
-    documentName = os.path.splitext(imgFileName)[0] + '.docx'
-    document.save(documentName)
+    document_name = os.path.splitext(img_filename)[0] + '.docx'
+    document.save(document_name)
     return 
