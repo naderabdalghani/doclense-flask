@@ -9,7 +9,7 @@ from functions.text_separation import text_separation
 import matplotlib.pyplot as plt
 import numpy as np
 from functions.thresholding import binarize
-
+from functions.deskew import deskew
 
 def show_images(images, titles=None):
     n_ims = len(images)
@@ -34,6 +34,9 @@ def main(img_filename):
     img = text_separation(img)
     img = binarize(img, mode=2)
     show_images([img])
+    # img = deskew(img)
+    # show_images([img])
+    
     # img_new_file = Image.fromarray(img, 'F')
     # img_new_file = img_new_file.convert('L')
     # img_new_file.save("your_file.png")
