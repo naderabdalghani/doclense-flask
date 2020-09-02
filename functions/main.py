@@ -13,44 +13,15 @@ from functions.deskew import deskew
 from functions.text_segmentation import text_to_lines, lines_to_words, words_to_characters
 
 
-def show_images(images, titles=None):
-    n_ims = len(images)
-    if titles is None: titles = ['(%d)' % i for i in range(1, n_ims + 1)]
-    fig = plt.figure()
-    n = 1
-    for image, title in zip(images, titles):
-        a = fig.add_subplot(1, n_ims, n)
-        if image.ndim == 2:
-            plt.gray()
-        plt.imshow(image)
-        a.set_title(title)
-        n += 1
-    fig.set_size_inches(np.array(fig.get_size_inches()) * n_ims)
-    plt.show()
-
-
 def main(img_filename):
     img_file_path = os.path.join(os.path.dirname(__file__), '../uploads/' + img_filename)
     img = io.imread(img_file_path)
     img = rgb2gray(img) * 255
     img = text_separation(img)
     img = binarize(img, mode=2)
-    # show_images([img], ["binarized"])
     lines = text_to_lines(img)
-    # for line in lines:
-    #     show_images([line.img, line.img_dialated])
     lines_to_words(lines)
-    # for word in lines[0].words:
-    #     show_images([word.word_img])
     words_to_characters(lines)
-    # i = 0
-    # for char in lines[0].words[3].characters:
-    #     show_images([char.img])
-    #     io.imsave(str(i), char.img)
-    #     i += 1
-
-    # img = deskew(img)
-    # show_images([img])
 
     # img_new_file = Image.fromarray(img, 'F')
     # img_new_file = img_new_file.convert('L')
