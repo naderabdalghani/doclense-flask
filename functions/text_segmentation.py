@@ -206,7 +206,7 @@ def words_to_characters(lines):
                         desired_size = 64
                         while x.shape[0] > desired_size * 0.8 or x.shape[1] > desired_size * 0.8:
                             x = rescale(x, 0.9, preserve_range=True)
-                            x = binarize(x, mode=2)
+                            # x = binarize(x, mode=2)
                         extra_left = int(np.ceil((desired_size - x.shape[0]) / 2))
                         extra_right = int(desired_size - x.shape[0] - extra_left)
                         extra_bottom = int(np.ceil((desired_size - x.shape[1]) / 2))

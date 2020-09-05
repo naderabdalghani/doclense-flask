@@ -1,8 +1,8 @@
 from matplotlib import pyplot as plt
 import numpy as np
 import skimage.io as io
-from docx import Document
-from docx.shared import Inches
+# from docx import Document
+# from docx.shared import Inches
 
 
 def show_images(images, titles=None):
@@ -26,7 +26,7 @@ def output_segmentation_results_imgs(lines):
     for line in lines:
         for word in line.words:
             for character in word.characters:
-                io.imsave('./results/' + str(i) + '.png', character.img)
+                io.imsave('./results/' + str(i) + '.png', np.array(character.img))
                 i += 1
 
 

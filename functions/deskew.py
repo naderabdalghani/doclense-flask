@@ -23,7 +23,7 @@ def deskew(imgsk):
 
     for i in range(binarized.shape[0] - 1):
         for j in range(binarized.shape[1]):
-            if (binarized[i][j] == 0 and binarized[i + 1][j] == 1):
+            if binarized[i][j] == 0 and binarized[i + 1][j] == 1:
                 binarized1[i][j] = 1
             else:
                 binarized1[i][j] = 0

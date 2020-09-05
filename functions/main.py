@@ -1,5 +1,4 @@
 import os
-
 import skimage.io as io
 from skimage.color import rgb2gray
 from functions.text_separation import text_separation
