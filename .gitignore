@@ -136,3 +136,4 @@ uploads/
 results/
 dataset/
 *.pt
+*.docx
