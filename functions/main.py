@@ -4,7 +4,8 @@ from skimage.color import rgb2gray
 from functions.text_separation import text_separation
 from functions.thresholding import binarize
 from functions.text_segmentation import text_to_lines, lines_to_words, words_to_characters
-from functions.utils import output_segmentation_results_imgs
+from functions.utils import output_segmentation_results_docx
+from model.model import *
 
 
 def main(img_filename):
@@ -16,5 +17,8 @@ def main(img_filename):
     lines = text_to_lines(img)
     lines_to_words(lines)
     words_to_characters(lines)
-    output_segmentation_results_imgs(lines)
+    model = init_model()
+    load_trained_model(model)
+    class_names = get_class_names()
+    output_segmentation_results_docx(lines, model, class_names)
     return
