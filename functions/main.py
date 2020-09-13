@@ -20,5 +20,5 @@ def main(img_filename):
     model = init_model()
     load_trained_model(model)
     class_names = get_class_names()
-    output_segmentation_results_docx(lines, model, class_names)
+    output_segmentation_results_docx(lines, model, class_names, img_filename)
     return
