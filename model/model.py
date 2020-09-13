@@ -7,23 +7,6 @@ from torch.utils.data import DataLoader, random_split
 import numpy as np
 from os import path
 from PIL import Image
-from matplotlib import pyplot as plt
-
-
-def show_images(images, titles=None):
-    n_ims = len(images)
-    if titles is None: titles = ['(%d)' % i for i in range(1, n_ims + 1)]
-    fig = plt.figure()
-    n = 1
-    for image, title in zip(images, titles):
-        a = fig.add_subplot(1, n_ims, n)
-        if image.ndim == 2:
-            plt.gray()
-        plt.imshow(image)
-        a.set_title(title)
-        n += 1
-    fig.set_size_inches(np.array(fig.get_size_inches()) * n_ims)
-    plt.show()
 
 
 def get_class_names(dataset_path='dataset'):
@@ -186,7 +169,7 @@ def predict(model, img, class_names):
 def main():
     loaders, class_names = init_data()
     model = init_model()
-    # model = train(5, loaders, model)
+    model = train(5, loaders, model)
     load_trained_model(model)
     test(loaders, model)
 
