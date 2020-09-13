@@ -41,8 +41,7 @@ def upload_file():
                     filename = time_string + secure_filename(file.filename)
                     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                     main(filename)
-                    # return send_file(os.path.splitext(filename)[0] + '.docx')
-                    return
+                    return send_file(os.path.splitext(filename)[0] + '.docx')
 
 
 if __name__ == "__main__":
